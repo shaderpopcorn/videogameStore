@@ -60,9 +60,10 @@ const updatePlatform = async (req, res, next) => {
     }
 
     if (updatedPlatform.games) {
-      const uniqueSet = [
-        new Set([...oldPlatform.games, ...updatedPlatform.games]),
-      ];
+      const uniqueSet = new Set([
+        ...oldPlatform.games,
+        ...updatedPlatform.games,
+      ]);
       updatedPlatform.games = Array.from(uniqueSet);
     }
 
